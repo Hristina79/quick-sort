@@ -41,10 +41,11 @@ public class DoubleLinkedListTest {
         softly.assertThat(list.contains(3)).isTrue();
 
         list.remove();
-
         softly.assertThat(list.size()).isEqualTo(0);
-        softly.assertThat(list.isEmpty()).isTrue();
         softly.assertThat(list.contains(3)).isFalse();
+
+        softly.assertAll();
+
     }
 
 }

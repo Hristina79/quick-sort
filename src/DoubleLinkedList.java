@@ -32,13 +32,21 @@ public class DoubleLinkedList<T extends Comparable<T>> implements MyQueue<T> {
 
     @Override   // removes the head
     public T remove() {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
 
-        T data = head.data;
-        head = head.next;
-        if (head == null) return null;
+        T node = head.data;
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+
         size--;
-        return data;
+        return node;
     }
 
     @Override
